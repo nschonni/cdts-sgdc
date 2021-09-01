@@ -4,18 +4,18 @@
 module.exports = function() {
 
     return {
-        builderFunctionName: 'top',
+        builderFunctionName: "top",
         builderFunctionParam: {
-            'cdnEnv': 'prod',
+            "cdnEnv": "prod",
             search: false,
             showPreContent: true,
             siteMenu: false,
             GCToolsModal: false,
-            topSecMenu: false,
+            topSecMenu: false
         },
 
         gcintranet: {
-            enabled: false,
-        },
+            enabled: false
+        }
     };
 };

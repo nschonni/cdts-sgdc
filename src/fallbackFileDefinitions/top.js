@@ -5,12 +5,12 @@ module.exports = function() {
 
     return {
         builderFunctionParam: {
-            'cdnEnv': 'prod',
+            "cdnEnv": "prod",
             search: true,
             showPreContent: false,
             siteMenu: true,
             GCToolsModal: false,
-            topSecMenu: false,
-        },
+            topSecMenu: false
+        }
     };
 };

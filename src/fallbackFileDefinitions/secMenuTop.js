@@ -4,7 +4,7 @@
 module.exports = function() {
 
     return {
-        builderFunctionName: 'top',
-        builderFunctionParam: {'cdnEnv': 'prod', search: true, showPreContent: true, topSecMenu: true},
+        builderFunctionName: "top",
+        builderFunctionParam: { "cdnEnv": "prod", search: true, showPreContent: true, topSecMenu: true }
     };
 };

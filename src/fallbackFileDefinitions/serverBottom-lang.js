@@ -4,10 +4,11 @@
 module.exports = function() {
 
     return {
+
         //NOTE: The serverBottom.js file will generate "serevrBottom.html" from serverBottom function, this file will generate "serverBottom-en.html" and "serverBottom-fr.html" from footer function
-        fileBaseName: 'serverBottom',
+        fileBaseName: "serverBottom",
         multiLanguageEnabled: true,
-        builderFunctionName: 'footer',
-        builderFunctionParam: {'cdnEnv': 'prod', showFooter: true, showFeatures: false},
+        builderFunctionName: "footer",
+        builderFunctionParam: { "cdnEnv": "prod", showFooter: true, showFeatures: false }
     };
 };

@@ -5,6 +5,6 @@ module.exports = function() {
 
     return {
         multiLanguageEnabled: false,
-        builderFunctionParam: {'cdnEnv': 'prod'},
+        builderFunctionParam: { "cdnEnv": "prod" }
     };
 };

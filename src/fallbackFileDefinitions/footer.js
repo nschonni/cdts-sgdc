@@ -4,6 +4,6 @@
 module.exports = function() {
 
     return {
-        builderFunctionParam: {'cdnEnv': 'prod', showFooter: true, showFeatures: true},
+        builderFunctionParam: { "cdnEnv": "prod", showFooter: true, showFeatures: true }
     };
 };

@@ -4,11 +4,11 @@
 module.exports = function() {
 
     return {
-        builderFunctionName: 'footer',
-        builderFunctionParam: {'cdnEnv': 'prod', showFooter: false, showFeatures: false},
+        builderFunctionName: "footer",
+        builderFunctionParam: { "cdnEnv": "prod", showFooter: false, showFeatures: false },
 
         gcintranet: {
-            enabled: false,
-        },
+            enabled: false
+        }
     };
 };

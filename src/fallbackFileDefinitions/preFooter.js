@@ -5,10 +5,10 @@ module.exports = function() {
 
     return {
         builderFunctionParam: {
-            'cdnEnv': 'prod',
+            "cdnEnv": "prod",
             showPostContent: false,
             showFeedback: true,
             showShare: false,
-            dateModified: '2019-03-01'}, //NOTE: Keeping date from original manually-maintained version of static file
+            dateModified: "2019-03-01" } //NOTE: Keeping date from original manually-maintained version of static file
     };
 };

@@ -1,0 +1,73 @@
+{
+  "extends": [
+    "eslint:recommended",
+    "jquery"
+  ],
+  "env": {
+    "es6": true
+  },
+  "rules": {
+    "max-len": "off"
+  },
+  "overrides": [
+    {
+      "files": [
+        "test/**/*.js"
+      ],
+      "env": {
+        "jquery": true,
+        "mocha": true,
+        "node": true
+      },
+      "globals": {
+        "browser": true,
+        "expect": true,
+        "wet": true
+      },
+      "parserOptions": {
+        "ecmaVersion": "latest"
+      },
+      "rules": {
+        "camelcase": "off",
+        "eqeqeq": "off",
+        "max-len": "off"
+      }
+    },
+    {
+      "files": [
+        "wdio.conf.js",
+        "TestFileGenerator.js",
+        "TestA11y.js",
+        "StaticFileCreator.js",
+        "EJSModuleGenerator.js",
+        "Gruntfile.js",
+        "htmlvalidator.conf.js",
+        "src/fallbackFileDefinitions/*.js"
+      ],
+      "env": {
+        "node": true
+      },
+      "globals": {
+        "grunt": true
+      },
+      "parserOptions": {
+        "ecmaVersion": "latest"
+      }
+    },
+    {
+      "files": [
+        "public/**/*.js",
+        "src/common/*.js",
+        "src/gcintranet/*.js",
+        "src/gcweb/*.js"
+      ],
+      "env": {
+        "browser": true,
+        "jquery": true
+      },
+      "globals": {
+        "wb": true
+      }
+    }
+  ]
+}

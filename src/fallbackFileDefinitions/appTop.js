@@ -5,11 +5,11 @@ module.exports = function() {
 
     return {
         builderFunctionParam: {
-            'cdnEnv': 'prod',
-            appName: [{text: 'Name of Web application', href: '#[YourApplicationName]'},],
-            search:false,
+            "cdnEnv": "prod",
+            appName: [ { text: "Name of Web application", href: "#[YourApplicationName]" } ],
+            search: false,
             showPreContent: false,
             topSecMenu: false
-        },
+        }
     };
 };

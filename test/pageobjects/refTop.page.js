@@ -1,14 +1,17 @@
-const Page = require('./page');
+const Page = require( "./page" );
 
 /**
  * sub page containing specific selectors and methods for a specific page
  */
 class refTopPage extends Page {
+
     /**
      * define selectors using getter methods
      */
 
-    get analyticsScript() { return $('//script[@id="cdts_AnalyticsId"]'); }
+    get analyticsScript() {
+ return $( "//script[@id=\"cdts_AnalyticsId\"]" );
+}
 
     /**
     * Opens a sub page of the page
@@ -17,8 +20,8 @@ class refTopPage extends Page {
     */
 
     //Return the various test pages
-    open(page) {
-        return super.open('gcweb', `gcweb-refTop-${page}.html`);
+    open( page ) {
+        return super.open( "gcweb", `gcweb-refTop-${page}.html` );
     }
 }
 

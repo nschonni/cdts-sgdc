@@ -1,21 +1,22 @@
-if (!process.env.DISABLE_PROXY) { //just a cheap way to disable this proxy setup from command line
-    console.log('Setting up for ESDC proxies...');
-    
-    process.env.GLOBAL_AGENT_HTTP_PROXY = 'http://proxy.prv:80'; //to enable proxy, alternative is to run with: GLOBAL_AGENT_HTTP_PROXY=http://proxy.prv:80 GLOBAL_AGENT_NO_PROXY='localhost,*.prv'
-    process.env.GLOBAL_AGENT_NO_PROXY = 'localhost,*.prv';
+if ( !process.env.DISABLE_PROXY ) { //just a cheap way to disable this proxy setup from command line
+    console.log( "Setting up for ESDC proxies..." );
+
+    process.env.GLOBAL_AGENT_HTTP_PROXY = "http://proxy.prv:80"; //to enable proxy, alternative is to run with: GLOBAL_AGENT_HTTP_PROXY=http://proxy.prv:80 GLOBAL_AGENT_NO_PROXY='localhost,*.prv'
+    process.env.GLOBAL_AGENT_NO_PROXY = "localhost,*.prv";
 
     //import {bootstrap} from 'global-agent';
-    const ga = require('global-agent');
+    const ga = require( "global-agent" );
     ga.bootstrap();
 }
 
-const targetBrowser = process.env.TEST_BROWSER_NAME || 'firefox'; //NOTE: we could instead always test with both by adding a second "capabilities" below
+const targetBrowser = process.env.TEST_BROWSER_NAME || "firefox"; //NOTE: we could instead always test with both by adding a second "capabilities" below
 const drivers = {
-        chrome: { version: '89.0.4389.23' },  //https://chromedriver.chromium.org/
-        firefox: { version: '0.29.0' }, //https://github.com/mozilla/geckodriver/releases
+        chrome: { version: "89.0.4389.23" },  //https://chromedriver.chromium.org/
+        firefox: { version: "0.29.0" } //https://github.com/mozilla/geckodriver/releases
     };
 
 exports.config = {
+
     //
     // ====================
     // Runner Configuration
@@ -23,7 +24,8 @@ exports.config = {
     //
     // WebdriverIO allows it to run your tests in arbitrary locations (e.g. locally or
     // on a remote machine).
-    runner: 'local',
+    runner: "local",
+
     //
     // ==================
     // Specify Test Files
@@ -34,12 +36,15 @@ exports.config = {
     // directory is where your package.json resides, so `wdio` will be called from there.
     //
     specs: [
-        './test/specs/**/*.js'
+        "./test/specs/**/*.js"
     ],
+
     // Patterns to exclude.
     exclude: [
+
         // 'path/to/excluded/files'
     ],
+
     //
     // ============
     // Capabilities
@@ -57,38 +62,44 @@ exports.config = {
     // from the same test should run tests.
     //
     maxInstances: 10,
+
     //
     // If you have trouble getting all important capabilities together, check out the
     // Sauce Labs platform configurator - a great tool to configure your capabilities:
     // https://docs.saucelabs.com/reference/platforms-configurator
     //
-    capabilities: [{
-    
+    capabilities: [ {
+
         // maxInstances can get overwritten per capability. So if you have an in-house Selenium
         // grid with only 5 firefox instances available you can make sure that not more than
         // 5 instances get started at a time.
         maxInstances: 1,
+
         //
         browserName: targetBrowser, //'chrome',
-        
-        'moz:firefoxOptions': {
+
+        "moz:firefoxOptions": {
+
             //binary: '/c/Program Files/Mozilla Firefox/firefox.exe',
             // flag to activate Firefox headless mode (see https://github.com/mozilla/geckodriver/blob/master/README.md#firefox-capabilities for more details about moz:firefoxOptions)
-            args: ['-headless'],
+            args: [ "-headless" ]
         },
+
         //'goog:chromeOptions': {
         //    // to run chrome headless the following flags are required
         //    // (see https://developers.google.com/web/updates/2017/04/headless-chrome)
         //    args: ['--headless', '--disable-gpu'],
         //},
-        
-        acceptInsecureCerts: true,
+
+        acceptInsecureCerts: true
+
         // If outputDir is provided WebdriverIO can capture driver session logs
         // it is possible to configure which logTypes to include/exclude.
         // excludeDriverLogs: ['*'], // pass '*' to exclude all driver session logs
         // excludeDriverLogs: ['bugreport', 'server'],
-    }],
+    } ],
     strictSSL: false,
+
     //
     // ===================
     // Test Configurations
@@ -96,7 +107,8 @@ exports.config = {
     // Define all options that are relevant for the WebdriverIO instance here
     //
     // Level of logging verbosity: trace | debug | info | warn | error | silent
-    logLevel: 'warn',
+    logLevel: "warn",
+
     //
     // Set specific log levels per logger
     // loggers:
@@ -115,22 +127,27 @@ exports.config = {
     // If you only want to run your tests until a specific amount of tests have failed use
     // bail (default is 0 - don't bail, run all tests).
     bail: 0,
+
     //
     // Set a base URL in order to shorten url command calls. If your `url` parameter starts
     // with `/`, the base url gets prepended, not including the path portion of your baseUrl.
     // If your `url` parameter starts without a scheme or `/` (like `some/path`), the base url
     // gets prepended directly.
-    baseUrl: 'http://localhost:8080',
+    baseUrl: "http://localhost:8080",
+
     //
     // Default timeout for all waitFor* commands.
     waitforTimeout: 10000,
+
     //
     // Default timeout in milliseconds for request
     // if browser driver or grid doesn't send response
     connectionRetryTimeout: 120000,
+
     //
     // Default request retries count
     connectionRetryCount: 3,
+
     //
     // Test runner services
     // Services take over a specific job you don't want to take care of. They enhance
@@ -140,20 +157,21 @@ exports.config = {
     //https://webdriver.io/docs/selenium-standalone-service.html
     //services: ['selenium-standalone'],
     services: [
-        ['selenium-standalone', {
+        [ "selenium-standalone", {
             installArgs: { drivers },
             skipSeleniumInstall: false,
-            args: { drivers }, 
-        }]
+            args: { drivers }
+        } ]
     ],
-    
+
     // Framework you want to run your specs with.
     // The following are supported: Mocha, Jasmine, and Cucumber
     // see also: https://webdriver.io/docs/frameworks.html
     //
     // Make sure you have the wdio adapter package for the specific framework installed
     // before running any tests.
-    framework: 'mocha',
+    framework: "mocha",
+
     //
     // The number of times to retry the entire specfile when it fails as a whole
     // specFileRetries: 1,
@@ -168,21 +186,21 @@ exports.config = {
     // The only one supported by default is 'dot'
     // see also: https://webdriver.io/docs/dot-reporter.html
     reporters: [
-        'dot',
-        'spec',
-        ['junit', {
-            outputDir: './',
-            outputFileFormat: (options) => `junit-results-${options.capabilities.browserName}-report.xml`,
-        }],
+        "dot",
+        "spec",
+        [ "junit", {
+            outputDir: "./",
+            outputFileFormat: ( options ) => `junit-results-${options.capabilities.browserName}-report.xml`
+        } ]
     ],
-    
+
     //
     // Options to be passed to Mocha.
     // See the full list at http://mochajs.org/
     mochaOpts: {
-        ui: 'bdd',
+        ui: "bdd",
         timeout: 60000
-    },
+    }
 
     //
     // =====
@@ -314,4 +332,4 @@ exports.config = {
     */
     //onReload: function(oldSessionId, newSessionId) {
     //}
-}
+};
